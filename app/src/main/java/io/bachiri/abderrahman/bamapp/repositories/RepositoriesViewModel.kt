@@ -22,6 +22,12 @@ class RepositoriesViewModel(private val repositoriesRepository: RepositoriesRepo
     }
 
     private fun initViewModel() {
+        getRepositoriesList()
+
+
+    }
+
+    fun getRepositoriesList() {
         _repositoriesList.postValue(RepositoriesOnLoading)
         compositeDisposable.add(
             repositoriesRepository
@@ -36,7 +42,6 @@ class RepositoriesViewModel(private val repositoriesRepository: RepositoriesRepo
                     }
                 )
         )
-
     }
 
     override fun onCleared() {
