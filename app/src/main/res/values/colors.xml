@@ -7,4 +7,13 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+
+    <color name="js">#FFD600</color>
+    <color name="java">#DD2C00</color>
+    <color name="cpp">#2962FF</color>
+    <color name="defaultColor">#FF6D00</color>
+    <color name="coffeescript">#681D1D</color>
+    <color name="html">#64DD17</color>
+    <color name="objectiveC">#00B8D4</color>
 </resources>

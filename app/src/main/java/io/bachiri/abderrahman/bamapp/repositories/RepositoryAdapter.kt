@@ -39,18 +39,31 @@ class RepositoryViewHolder(var viewItem: View) : RecyclerView.ViewHolder(viewIte
 
     fun bind(repository: Repository) {
         viewItem.repoName.text = repository.repoName
+        viewItem.repoLang.text = repository.repoLanguage
 
         //TODO change implementation (Testing purpose)
         repository.repoLanguage?.let {
             when (repository.repoLanguage) {
+                "Objective-C" -> {
+                    viewItem.repoItem.setBackgroundResource(R.color.objectiveC)
+                }
+                "C++" -> {
+                    viewItem.repoItem.setBackgroundResource(R.color.cpp)
+                }
                 "Java" -> {
-                    viewItem.repoTag.setBackgroundResource(R.color.purple_200)
+                    viewItem.repoItem.setBackgroundResource(R.color.java)
                 }
                 "JavaScript" -> {
-                    viewItem.repoTag.setBackgroundResource(R.color.design_default_color_secondary)
+                    viewItem.repoItem.setBackgroundResource(R.color.js)
+                }
+                "HTML" -> {
+                    viewItem.repoItem.setBackgroundResource(R.color.html)
+                }
+                "CoffeeScript" -> {
+                    viewItem.repoItem.setBackgroundResource(R.color.coffeescript)
                 }
                 else -> {
-                    viewItem.repoTag.setBackgroundResource(R.color.design_default_color_error)
+                    viewItem.repoItem.setBackgroundResource(R.color.defaultColor)
                 }
             }
         }
