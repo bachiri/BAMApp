@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import io.bachiri.abderrahman.bamapp.R
@@ -12,6 +13,7 @@ import io.bachiri.abderrahman.bamapp.data.Repository
 import io.bachiri.abderrahman.bamapp.data.remote.RemoteDataSource
 import io.bachiri.abderrahman.bamapp.data.remote.RepoAPI
 import io.bachiri.abderrahman.bamapp.data.remote.RetrofitRepositoryClient
+import io.bachiri.abderrahman.bamapp.utils.getViewModelFactory
 import kotlinx.android.synthetic.main.activity_main.*
 
 class RepositoriesActivity : AppCompatActivity() {
@@ -36,16 +38,8 @@ class RepositoriesActivity : AppCompatActivity() {
 
     private fun initViewModel() {
 
-        //TODO To Be injected
-        val repositoriesRepository: RepositoriesRepository = RepositoriesRepository(
-            RemoteDataSource(
-                RetrofitRepositoryClient.getRetrofitInstance()?.create(RepoAPI::class.java)!!
-            )
-        )
-        val repositoriesViewModel: RepositoriesViewModel = RepositoriesViewModel(
-            repositoriesRepository
-        )
-
+        val repositoriesViewModel: RepositoriesViewModel =
+            ViewModelProvider(this, getViewModelFactory()).get(RepositoriesViewModel::class.java)
 
         repositoriesViewModel.repositoriesList.observe(this, { repositoriesViewStates ->
 

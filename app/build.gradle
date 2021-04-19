@@ -52,5 +52,8 @@ dependencies {
     //Swipe Referesher
     implementation "androidx.swiperefreshlayout:swiperefreshlayout:1.1.0"
 
+    //ViewModel Lifecycle extensions
+    implementation "androidx.lifecycle:lifecycle-viewmodel-savedstate:2.3.0"
+
 
 }

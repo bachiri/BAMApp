@@ -12,14 +12,14 @@ import kotlinx.android.synthetic.main.repo_item.view.*
 class RepositoryAdapter(
     private val context: Context,
     private var repositories: List<Repository>
-) : RecyclerView.Adapter<BookViewHolder>() {
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BookViewHolder {
+) : RecyclerView.Adapter<RepositoryViewHolder>() {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RepositoryViewHolder {
         val view = LayoutInflater.from(context)
             .inflate(R.layout.repo_item, parent, false)
-        return BookViewHolder(view)
+        return RepositoryViewHolder(view)
     }
 
-    override fun onBindViewHolder(holder: BookViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: RepositoryViewHolder, position: Int) {
         val currentRepository = repositories[position]
         holder.bind(currentRepository)
     }
@@ -35,7 +35,7 @@ class RepositoryAdapter(
 
 }
 
-class BookViewHolder(var viewItem: View) : RecyclerView.ViewHolder(viewItem) {
+class RepositoryViewHolder(var viewItem: View) : RecyclerView.ViewHolder(viewItem) {
 
     fun bind(repository: Repository) {
         viewItem.repoName.text = repository.repoName
